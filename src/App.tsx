@@ -3,8 +3,29 @@ import Sidebar from "./components/Sidebar";
 import TaskInput from "./components/TaskInput";
 import Task from "./components/Task";
 import Footer from "./components/Footer";
+import type { TaskCardProps } from "./libs/types";
 
 function App() {
+  const TaskCards: TaskCardProps[] = [
+    {
+      id: 1,
+      title: "Read a book",
+      description: "Vite + React + Bootstrap + TS",
+      isDone: true,
+    },
+    {
+      id: 2,
+      title: "Write code",
+      description: "Finish project for class",
+      isDone: true,
+    },
+    {
+      id: 3,
+      title: "Deploy app",
+      description: "Push project to GitHub Pages",
+      isDone: true,
+    },
+  ];
   return (
     <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
       {/* Header ด้านบน */}
@@ -19,24 +40,9 @@ function App() {
             {/* input ด้านบน*/}
             <TaskInput></TaskInput>
             {/* Card รายการ */}
-            <Task
-              id={1}
-              title="Read a book"
-              description="Vite + React + Bootstrap + TS"
-              isDone={true}
-            ></Task>
-            <Task
-              id={2}
-              title="Write code"
-              description="Finish project for class"
-              isDone={true}
-            ></Task>
-            <Task
-              id={2}
-              title="Deploy app"
-              description="Push project to GitHub Pages"
-              isDone={true}
-            ></Task>
+            <Task {...TaskCards[0]}></Task>
+            <Task {...TaskCards[1]}></Task>
+            <Task {...TaskCards[2]}></Task>
           </main>
         </div>
       </div>
